@@ -31,7 +31,7 @@ h1{
     color: beige;
 }
 a[ href="https://www.instagram.com/aosaf_rayeed777?igsh=ZngwMWRsYWR3amVq"]:hover{
- color: saddlebrown;
+ color: wn;
     text-decoration: none;}
 
 #header{
@@ -120,4 +120,28 @@ input[type="reset"]{
 }
 p{
     font-family: 'Pacifico';
+}
+/* Input text color white when typing */
+form input,
+form textarea,
+form select {
+    color: white;
+    caret-color: white;
+}
+
+/* Fieldset and legend same color as Name/Address labels */
+fieldset {
+    border-color: aliceblue;
+}
+
+fieldset legend {
+    font-family: 'Pacifico', cursive;
+    color: saddlebrown;        /* same as Name:* and Address:* */
+    font-size: 1rem;
+}
+
+/* Male / Female label text */
+fieldset label {
+    color: saddlebrown;        /* same as Name:* and Address:* */
+    font-family: 'Pacifico', cursive;
 }
