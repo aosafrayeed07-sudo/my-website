@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style1.css" />
+
+    <title>Rayeed's Website</title>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      p {
+        font-family: "Pacifico", cursive;
+        color: rgb(198, 130, 40);
+      }
+
+      .special {
+        font-weight: bold;
+        color: black;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #222;
+        padding: 15px 30px;
+      }
+
+      nav .left {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 20px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      nav ul li a:hover {
+        color: lightblue;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      img,
+      video,
+      iframe {
+        max-width: 100%;
+        border-radius: 10px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+      }
+
+      table th,
+      table td {
+        border: 1px solid black;
+        padding: 10px;
+      }
+
+      table th {
+        background-color: lightgray;
+      }
+
+      form input,
+      form textarea,
+      form select {
+        margin: 10px 0;
+        padding: 8px;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        width: 120px;
+        cursor: pointer;
+      }
+
+      .foot {
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav>
+        <div class="left"><span id="my">AARC Academy</span></div>
+
+        <div class="right">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About_section.html">About</a></li>
+            <li><a href="Services_section.html">Services</a></li>
+            <li><a href="Projects_section.html">Projects</a></li>
+            <li><a href="planet_picker.html">Solar System</a></li>
+            <li><a href="Contact_us_section.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section>
+      <h1 style="color: blueviolet">HOME | Welcome to Rayeed's Website</h1>
+
+      <hr />
+      <hr />
+
+      <p>This is a simple webpage created by Rayeed.</p>
+    </section>
+
+    <!-- About Me -->
+    <section>
+      <h2>About Me</h2>
+
+      <p>
+        Hi, I'm Rayeed! I'm a
+        <span id="element"></span>
+        and I love creating cool websites.
+      </p>
+
+      <p>
+        I am studying EEE at Bangladesh University of Engineering and
+        Technology.
+      </p>
+    </section>
+
+    <hr />
+
+    <!-- Contact -->
+    <section>
+      <h2>Contact Me</h2>
+
+      <p>
+        You can reach me at Instagram ID:
+        <a
+          href="https://www.instagram.com/aosaf_rayeed777?igsh=ZngwMWRsYWR3amVq"
+          target="_blank"
+        >
+          aosaf_rayeed777
+        </a>
+      </p>
+    </section>
+
+    <hr />
+
+    <!-- Photo -->
+    <section>
+      <h2>Photo of Me and My Friends</h2>
+
+      <img
+        src="photo_2026-05-13_09-10-47.jpg"
+        alt="Photo of Rayeed and friends"
+        width="200"
+      />
+
+      <p>Here is a photo of me and my friends. I hope you like it!</p>
+    </section>
+
+    <hr />
+
+    <!-- Achievements -->
+    <section id="achievements">
+      <p>My Achievements:</p>
+
+      <ul type="square">
+        <li>Completed HSC from Chittagong College with GPA 5.00</li>
+
+        <li>
+          Completed SSC from Chittagong Government High School with GPA 5.00
+        </li>
+
+        <li>
+          Currently studying EEE at Bangladesh University of Engineering and
+          Technology
+        </li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- Hobbies -->
+    <section id="hobbies">
+      <p>My Hobbies:</p>
+
+      <ol>
+        <li>Coding</li>
+
+        <li>
+          Traveling
+
+          <ul>
+            <li>Mountains</li>
+            <li>Beaches</li>
+            <li>Historical Places</li>
+          </ul>
+        </li>
+
+        <li>Cooking</li>
+      </ol>
+    </section>
+
+    <hr />
+
+    <!-- Friends -->
+    <section>
+      <p>My Friends:</p>
+
+      <ul>
+        <li class="special">
+          <span id="friends">Syed Ashraful Alam</span>
+        </li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- Memories -->
+    <section>
+      <h1>Memories</h1>
+
+      <video
+        src="video_2026-05-13_08-59-39.mp4"
+        controls
+        loop
+        muted
+        width="350"
+        poster="photo_2026-05-24_10-45-03.jpg"
+      ></video>
+    </section>
+
+    <hr />
+
+    <!-- Learning Video -->
+    <section>
+      <h1>Web Development Learning Video</h1>
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/l1EssrLxt7E"
+        title="YouTube video player"
+        frameborder="0"
+        allowfullscreen
+      >
+      </iframe>
+    </section>
+
+    <hr />
+
+    <!-- Other Website -->
+    <section>
+      <h1>Another Website of Mine</h1>
+
+      <a href="https://crush-whisper-vault.base44.app/" target="_blank">
+        Crush Whisper Vault
+      </a>
+
+      <p>This is a webpage to confess your feelings.</p>
+    </section>
+
+    <hr />
+
+    <!-- Timetable -->
+    <section>
+      <h1>My Timetable</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>9-10</th>
+            <th>10-11</th>
+            <th>11-12</th>
+            <th>12-1</th>
+            <th>1-2</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>Math</td>
+            <td>Physics</td>
+            <td>Chemistry</td>
+            <td>Break</td>
+            <td>English</td>
+          </tr>
+
+          <tr>
+            <td>Tuesday</td>
+            <td>Biology</td>
+            <td>History</td>
+            <td>Geography</td>
+            <td>Break</td>
+            <td>Math</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="foot">
+        If you follow this timetable, I hope you will get good results.
+      </h2>
+    </section>
+
+    <hr />
+
+    <!-- Form -->
+    <section>
+      <h1>Information About You</h1>
+
+      <form>
+        <p>Name:*</p>
+        <input type="text" required />
+
+        <fieldset>
+          <legend>Gender:*</legend>
+
+          <label>
+            Male
+            <input type="radio" name="gender" required />
+          </label>
+
+          <label>
+            Female
+            <input type="radio" name="gender" required />
+          </label>
+        </fieldset>
+
+        <p>Address:*</p>
+
+        <textarea cols="50" rows="5" required></textarea>
+
+        <p>Email:*</p>
+
+        <input type="email" required />
+
+        <p>Contact No:</p>
+
+        <input type="number" />
+
+        <p>Division:</p>
+
+        <select>
+          <option>Dhaka</option>
+          <option>Chittagong</option>
+          <option>Khulna</option>
+          <option>Rajshahi</option>
+          <option>Sylhet</option>
+          <option>Mymensingh</option>
+          <option>Rangpur</option>
+          <option>Barishal</option>
+        </select>
+
+        <p>Date of Birth:</p>
+
+        <input type="date" />
+
+        <p>Password:*</p>
+
+        <input type="password" required />
+
+        <br /><br />
+
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+      </form>
+    </section>
+    <!-- Typed.js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+      // About Me Animation
+      var typed = new Typed("#element", {
+        strings: [
+          "Web Developer",
+          "Programmer",
+          "EEE Student",
+          "Python Enthusiast",
+        ],
+
+        typeSpeed: 70,
+        backSpeed: 50,
+        backDelay: 1500,
+        loop: true,
+      });
+
+      // Navbar Animation
+      var typed2 = new Typed("#my", {
+        strings: ["AARC Academy", "Learn Programming", "Learn Web Development"],
+
+        typeSpeed: 80,
+        backSpeed: 40,
+        backDelay: 1200,
+        loop: true,
+      });
+      var typed2 = new Typed("#friends", {
+        strings: [
+          "Arghya Arpon",
+          "Arittra Chowdhury",
+          "Soumitra Bosu",
+          "Shrabon Barua",
+        ],
+
+        typeSpeed: 80,
+        backSpeed: 40,
+        backDelay: 1200,
+        loop: true,
+      });
+    </script>
+  </body>
+</html>

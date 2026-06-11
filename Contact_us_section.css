@@ -1,0 +1,79 @@
+*{
+    background-color: rgb(5, 5, 40); 
+}
+h1{
+    color: purple;
+}
+p{
+    color: greenyellow;
+}
+a[href="https://www.instagram.com/a_tisbg?igsh=N2tzc3poYjNkNjM="]:hover{
+    color: saddlebrown;
+    text-decoration: none;
+}
+a[href="https://www.instagram.com/arittra3327?igsh=MTl6YTN5YWx2Z2dldQ=="]:hover{
+    color: saddlebrown;
+    text-decoration: none;
+}
+a[href="https://www.instagram.com/arghya_arpon?igsh=bjZ4Mm5wMGdiZDZk"]:hover{
+    color: saddlebrown;
+    text-decoration: none;
+}
+a[href="https://www.instagram.com/aosaf_rayeed777?igsh=ZngwMWRsYWR3amVq"]:hover{
+    color: saddlebrown;
+    text-decoration: none;
+}
+a[href="https://www.facebook.com/share/1Cnqt5NXng/"]:hover{
+    color: saddlebrown;
+    text-decoration: none;
+}
+a[href="https://www.facebook.com/share/1GGQLC9Ydq/"]:hover{
+    color: saddlebrown;
+    text-decoration: none;
+}
+a[href="https://www.facebook.com/share/18YdQkEhhR/"]:hover{
+    color: saddlebrown;
+    text-decoration: none;
+}
+a[href="https://www.facebook.com/share/1BUUQRoLWL/"]:hover{
+    color: saddlebrown;
+    text-decoration: none;
+}
+.left {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: aliceblue;
+        transition: 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: rgb(153, 153, 226);
+      }
+      .navbar {
+    display: flex;
+    gap: 20px; /* space between links */
+}
+
+.navbar a {
+    color: lightblue;
+    text-decoration: none;
+    font-size: 24px;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.left{
+    color: aqua;
+}

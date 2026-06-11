@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(5, 5, 40);
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: black;
+}
+
+/* Logo */
+
+.left{
+    color: aqua;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Navigation Links */
+
+.right ul{
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.right ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.right ul li a:hover{
+    color: cyan;
+}
+
+/* Heading */
+
+h1{
+    color: purple;
+    text-align: center;
+    margin-top: 80px;
+    font-size: 3rem;
+}
+
+/* Paragraph */
+
+p{
+    color: greenyellow;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+/* Horizontal Line */
+
+hr{
+    width: 60%;
+    margin: 10px auto;
+    border: 1px solid cyan;
+}
+body{
+    background-color: rgb(5, 5, 40);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Background Strips */
+
+body::before{
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0,255,255,0.08) 0px,
+        rgba(0,255,255,0.08) 2px,
+        transparent 2px,
+        transparent 40px
+    );
+
+    top: -50%;
+    left: -50%;
+    animation: moveStrips 10s linear infinite;
+    z-index: -1;
+}
+
+@keyframes moveStrips{
+    0%{
+        transform: translateX(0) translateY(0);
+    }
+
+    100%{
+        transform: translateX(50px) translateY(50px);
+    }
+}

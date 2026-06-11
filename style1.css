@@ -1,0 +1,123 @@
+a[ href="https://www.instagram.com/aosaf_rayeed777?igsh=ZngwMWRsYWR3amVq"]{
+    color:rgb(131, 57, 206);
+}
+a[href="https://crush-whisper-vault.base44.app/"]{
+     color:rgb(131, 57, 206); }
+p{
+    color: greenyellow;
+}
+tablefooter{
+    color: blanchedalmond;
+}
+li{
+    list-style-type: none;
+}
+.special,
+.special span,
+#friends {
+    color: greenyellow;
+    font-weight: bold;
+}
+
+
+a[href="https://crush-whisper-vault.base44.app/"]:hover{
+    color: saddlebrown;
+    text-decoration: none;
+}
+h1{
+    color:rgb(110, 239, 239)
+}
+.foot{
+    color: beige;
+}
+a[ href="https://www.instagram.com/aosaf_rayeed777?igsh=ZngwMWRsYWR3amVq"]:hover{
+ color: saddlebrown;
+    text-decoration: none;}
+
+#header{
+    color: greenyellow;
+    background-color: aliceblue;
+}
+*{
+    list-style-type: none;
+}
+table,th,td{
+    border-color: aquamarine;
+     color:green ;
+}
+*{
+       background-color: rgb(5, 5, 40); 
+
+}
+h2{
+    color: aliceblue;
+}
+.li{
+    color: bisque;
+}
+td,th{
+    color:aliceblue
+}
+ul,ol,li{
+    color:aliceblue
+}
+#acheivements,
+#hobbies,
+#friends{
+    color: aliceblue;
+}
+input[type="submit"]{
+    background-color: black;
+    color: antiquewhite;
+    
+}
+input[type="reset"]{
+    background-color: black;
+    color: antiquewhite;
+    
+}
+ .left {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: aliceblue;
+        transition: 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: rgb(153, 153, 226);
+      }
+      .navbar {
+    display: flex;
+    gap: 20px; /* space between links */
+}
+
+.navbar a {
+    color: lightblue;
+    text-decoration: none;
+    font-size: 24px;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.left{
+    color: aqua;
+   
+}
+.rule{
+    color: rgb(107, 181, 132);
+}
+p{
+    font-family: 'Pacifico';
+}

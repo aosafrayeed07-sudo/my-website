@@ -1,0 +1,47 @@
+*{
+    background-color: rgb(5, 5, 40); 
+}
+h1{
+    color: purple;
+}
+p{
+    color: greenyellow;
+}
+.left {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: aliceblue;
+        transition: 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: rgb(153, 153, 226);
+      }
+      .navbar {
+    display: flex;
+    gap: 20px; /* space between links */
+}
+
+.navbar a {
+    color: lightblue;
+    text-decoration: none;
+    font-size: 24px;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.left{
+    color: aqua;
+}

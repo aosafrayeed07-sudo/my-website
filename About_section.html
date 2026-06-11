@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playwrite+AU+TAS:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="About_section.css">
+
+   <style>
+
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #141e30, #243b55);
+        color: white;
+    }
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0,0,0,0.7);
+        padding: 20px 40px;
+    }
+
+    .left{
+        font-size: 2rem;
+        font-weight: bold;
+        color: cyan;
+    }
+
+    .right ul{
+        display: flex;
+        list-style: none;
+        gap: 25px;
+    }
+
+    .right ul li a{
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+    }
+
+    .right ul li a:hover{
+        color: cyan;
+    }
+
+    h1{
+        text-align: center;
+        margin-top: 40px;
+        font-size: 3rem;
+        color: cyan;
+    }
+
+    p{
+        font-family: 'Pacifico', cursive;
+        font-size: 1.2rem;
+        padding: 0 40px;
+        line-height: 2;
+    }
+
+    ol{
+        padding-left: 80px;
+        font-size: 1.1rem;
+        line-height: 2;
+    }
+
+    .my_name{
+        color: cyan;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .my_institution{
+        color: gold;
+        font-size: 1.3rem;
+    }
+
+    hr{
+        border: 1px solid cyan;
+        width: 80%;
+    }
+
+</style>
+    <title>ABOUT US</title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+
+            <div class="left">
+    <span id="my"></span>
+</div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About_section.html">About</a></li>
+                    <li><a href="Services_section.html">Services</a></li>
+                    <li><a href="Projects_section.html">Projects</a></li>
+                       <li><a href="planet_picker.html">Solar System</a></li>
+                    <li><a href="Contact_us_section.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+
+    <h1>ABOUT</h1>
+
+    <hr>
+    <hr>
+
+    <p>This is a website to help junior students of class 6-10.</p>
+
+    <br>
+
+    <p>This website is created by-</p>
+
+    <br>
+
+    <p class="my_name">Aosaf Ahbab Rayeed</p>
+
+    <p class="my_institution">A Student of EEE, BUET</p>
+
+    <p>The people who assisted me in this project-</p>
+
+    <ol>
+        <li>Syed Ashraful Alam, teacher of Chemistry</li>
+        <li>Arghya Arpon, teacher of Physics</li>
+        <li>Arittra Chowdhury, teacher of Higher Math</li>
+    </ol>
+
+    <br>
+
+    <p>I hope you will find this website creative and helpful.</p>
+
+    <p>I will upload my Python projects and will try to help you as much as possible.</p>
+    <!-- Typed.js Library -->
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<script>
+
+    var typed = new Typed("#my", {
+
+        strings: [
+            "AARC Academy",
+            "Learn Programming",
+            "Learn Web Development"
+        ],
+
+        typeSpeed: 60,
+        backSpeed: 40,
+        backDelay: 1200,
+        loop: true
+
+    });
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Services_section.css">
+    <title>Services</title>
+     <style>
+
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #141e30, #243b55);
+        color: white;
+    }
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0,0,0,0.7);
+        padding: 20px 40px;
+    }
+
+    .left{
+        font-size: 2rem;
+        font-weight: bold;
+        color: cyan;
+    }
+
+    .right ul{
+        display: flex;
+        list-style: none;
+        gap: 25px;
+    }
+
+    .right ul li a{
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+    }
+
+    .right ul li a:hover{
+        color: cyan;
+    }
+
+    h1{
+        text-align: center;
+        margin-top: 40px;
+        font-size: 3rem;
+        color: cyan;
+    }
+
+    p{
+        font-family: 'Pacifico', cursive;
+        font-size: 1.2rem;
+        padding-left: 40px;
+        line-height: 2;
+    }
+
+    a{
+        display: block;
+        margin-left: 40px;
+        margin-top: 10px;
+        color: gold;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: 0.3s;
+    }
+
+    a:hover{
+        color: cyan;
+        transform: translateX(10px);
+    }
+
+    hr{
+        border: 1px solid cyan;
+        width: 80%;
+    }
+
+</style>
+</head>
+<body> 
+    <header>
+    <nav>
+
+        <div class="left">
+            <span id="my">AARC Academy</span>
+        </div>
+
+        <div class="right">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About_section.html">About</a></li>
+                <li><a href="Services_section.html">Services</a></li>
+                <li><a href="Projects_section.html">Projects</a></li>
+                <li><a href="planet_picker.html">Solar System</a></li>
+                <li><a href="Contact_us_section.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+    </nav>
+</header>
+    <h1>Services</h1>
+    <hr><hr>
+<section class="services">
+
+    <div class="service-box">
+        <h2>Web Development</h2>
+
+        <p>
+            I create responsive and modern websites using HTML, CSS and JavaScript.
+        </p>
+    </div>
+
+    <div class="service-box">
+        <h2>Python Programming</h2>
+
+        <p>
+            I develop Python projects and help beginners learn programming easily.
+        </p>
+    </div>
+
+    <div class="service-box">
+        <h2>Academic Support</h2>
+
+        <p>
+            I help students of class 6-10 with Mathematics, Physics and Chemistry.
+        </p>
+    </div>
+
+    <div class="service-box">
+        <h2>Portfolio Websites</h2>
+
+        <p>
+            I design beautiful personal portfolio websites for students and developers.
+        </p>
+    </div>
+
+</section>
+ <!-- Typed.js Library -->
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<script>
+
+    var typed = new Typed("#my", {
+
+        strings: [
+            "AARC Academy",
+            "Learn Programming",
+            "Learn Web Development"
+        ],
+
+        typeSpeed: 60,
+        backSpeed: 40,
+        backDelay: 1200,
+        loop: true
+
+    });
+
+</script>
+
+    
+</body>
+</html>

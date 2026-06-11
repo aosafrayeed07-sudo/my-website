@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planet Picker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #060a14;
+      font-family: 'Rajdhani', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #starfield {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    }
+
+    .scene {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 32px;
+      width: 100%; padding: 20px 0;
+    }
+
+    .title-block {
+      text-align: center;
+      animation: fadeDown 0.8s ease both;
+    }
+    .title-block h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 13px; letter-spacing: 5px; text-transform: uppercase;
+      color: rgba(180,200,255,0.4); margin-bottom: 4px;
+    }
+    .title-block p {
+      font-size: 28px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(220,235,255,0.9);
+    }
+
+    .orbit-track {
+      position: relative;
+      width: 680px; height: 120px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .orbit-line {
+      position: absolute;
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(100,140,255,0.15) 20%, rgba(100,140,255,0.25) 50%, rgba(100,140,255,0.15) 80%, transparent);
+    }
+
+    .planets-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 18px; width: 680px; padding: 0 20px;
+    }
+
+    .planet-item {
+      position: relative;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+      cursor: pointer;
+      animation: riseIn 0.7s ease both;
+    }
+
+    .planet-wrap {
+      position: relative;
+      width: 72px; height: 72px;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .planet-item:hover .planet-wrap { transform: translateY(-10px) scale(1.12); }
+    .planet-item.active .planet-wrap { transform: translateY(-14px) scale(1.18); }
+
+    .planet-svg { width: 100%; height: 100%; }
+
+    .glow-ring {
+      position: absolute; inset: -8px;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .planet-item:hover .glow-ring,
+    .planet-item.active .glow-ring { opacity: 1; }
+
+    .orbit-dot {
+      position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%);
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(100,140,255,0.5);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .planet-item.active .orbit-dot { opacity: 1; }
+
+    .planet-name {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(180,200,255,0.45);
+      transition: color 0.3s;
+      font-family: 'Rajdhani', sans-serif; font-weight: 600;
+    }
+    .planet-item:hover .planet-name,
+    .planet-item.active .planet-name { color: rgba(220,235,255,0.9); }
+
+    .info-panel {
+      width: 560px; min-height: 120px;
+      border: 1px solid rgba(100,140,255,0.18);
+      border-radius: 12px;
+      padding: 22px 28px;
+      background: rgba(10,18,40,0.7);
+      backdrop-filter: blur(12px);
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      transition: all 0.4s ease;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .stat-block { display: flex; flex-direction: column; gap: 3px; }
+    .stat-label {
+      font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(140,170,255,0.4);
+    }
+    .stat-value {
+      font-size: 18px; font-weight: 600; letter-spacing: 1px;
+      color: rgba(220,235,255,0.9);
+      transition: color 0.3s;
+    }
+    .stat-value.accent { font-size: 14px; }
+
+    .tagline {
+      grid-column: 1 / -1;
+      font-size: 13px; letter-spacing: 0.5px;
+      color: rgba(160,190,255,0.5);
+      border-top: 1px solid rgba(100,140,255,0.12);
+      padding-top: 10px; margin-top: 4px;
+      font-style: italic;
+    }
+    .left {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: aliceblue;
+        transition: 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: rgb(153, 153, 226);
+      }
+      .navbar {
+    display: flex;
+    gap: 20px; /* space between links */
+}
+
+.navbar a {
+    color: lightblue;
+    text-decoration: none;
+    font-size: 24px;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.left{
+    color: aqua;
+
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:none; } }
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(16px);  } to { opacity:1; transform:none; } }
+    @keyframes riseIn   { from { opacity:0; transform:translateY(28px) scale(0.85); } to { opacity:1; transform:none; } }
+  </style>
+</head>
+<body>
+  <header>
+     <nav>
+
+            <div class="left">
+                <span id="my"></span>
+            </div>
+
+            <div class="right">
+
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About_section.html">About</a></li>
+                    <li><a href="Services_section.html">Services</a></li>
+                    <li><a href="Projects_section.html">Projects</a></li> 
+                      <li><a href="planet_picker.html">Solar System</a></li>
+                    <li><a href="Contact_us_section.html">Contact Us</a></li>
+                </ul>
+
+            </div>
+
+        </nav>
+
+  </header>
+
+<canvas id="starfield"></canvas>
+
+<div class="scene">
+  <div class="title-block">
+    <h1>Solar Exploration</h1>
+    <p>Choose Your World</p>
+  </div>
+
+  <div class="orbit-track">
+    <div class="orbit-line"></div>
+  </div>
+
+  <div class="planets-row" id="planets-row"></div>
+
+  <div class="info-panel" id="info-panel">
+    <div class="stat-block"><div class="stat-label">Planet</div><div class="stat-value" id="s-name">—</div></div>
+    <div class="stat-block"><div class="stat-label">Distance from Sun</div><div class="stat-value accent" id="s-dist">—</div></div>
+    <div class="stat-block"><div class="stat-label">Day Length</div><div class="stat-value accent" id="s-day">—</div></div>
+    <div class="stat-block"><div class="stat-label">Moons</div><div class="stat-value" id="s-moons">—</div></div>
+    <div class="stat-block"><div class="stat-label">Surface Temp</div><div class="stat-value accent" id="s-temp">—</div></div>
+    <div class="stat-block"><div class="stat-label">Type</div><div class="stat-value accent" id="s-type">—</div></div>
+    <div class="tagline" id="s-tag">← Select a planet to explore</div>
+  </div>
+</div>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<script>
+const planets = [
+  {
+    name: "Mercury", color: "#a89880", glow: "#d4b896",
+    dist: "0.39 AU", day: "58.6 d", moons: "0", temp: "430°C", type: "Terrestrial",
+    tag: "The swift messenger — closest to the sun, no atmosphere to speak of.",
+    draw(ctx, cx, cy, r) {
+      const g = ctx.createRadialGradient(cx-r*0.3,cy-r*0.3,r*0.1,cx,cy,r);
+      g.addColorStop(0,"#d4c0a8"); g.addColorStop(0.5,"#a89880"); g.addColorStop(1,"#6a5a48");
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      for(let i=0;i<6;i++){
+        ctx.beginPath(); ctx.arc(cx+Math.cos(i*1.1)*r*0.4,cy+Math.sin(i*0.9)*r*0.4,r*0.07,0,Math.PI*2);
+        ctx.fillStyle="rgba(90,70,50,0.5)"; ctx.fill();
+      }
+    }
+  },
+  {
+    name: "Venus", color: "#e8c87a", glow: "#f0d890",
+    dist: "0.72 AU", day: "243 d", moons: "0", temp: "465°C", type: "Terrestrial",
+    tag: "Shrouded in thick clouds, the hottest planet in our solar system.",
+    draw(ctx, cx, cy, r) {
+      const g = ctx.createRadialGradient(cx-r*0.3,cy-r*0.3,r*0.05,cx,cy,r);
+      g.addColorStop(0,"#f5e8b0"); g.addColorStop(0.4,"#e8c87a"); g.addColorStop(1,"#c09040");
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      for(let i=0;i<4;i++){
+        ctx.beginPath(); ctx.ellipse(cx,cy-r*0.2+i*r*0.15,r*0.85,r*0.05,0,0,Math.PI*2);
+        ctx.fillStyle="rgba(220,190,80,0.18)"; ctx.fill();
+      }
+    }
+  },
+  {
+    name: "Earth", color: "#4a9eda", glow: "#60c0f0",
+    dist: "1.00 AU", day: "24 h", moons: "1", temp: "15°C", type: "Terrestrial",
+    tag: "Our pale blue dot — the only known harbor of life in the cosmos.",
+    draw(ctx, cx, cy, r) {
+      const g = ctx.createRadialGradient(cx-r*0.3,cy-r*0.3,r*0.05,cx,cy,r);
+      g.addColorStop(0,"#80d0ff"); g.addColorStop(0.5,"#4a9eda"); g.addColorStop(1,"#1a5090");
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      const land = [[cx-r*0.2,cy-r*0.1,r*0.28,"#4a9a58"],[cx+r*0.1,cy+r*0.1,r*0.22,"#5aaa68"],[cx-r*0.05,cy+r*0.25,r*0.15,"#4a9a58"]];
+      land.forEach(([lx,ly,lr,lc])=>{ctx.beginPath();ctx.arc(lx,ly,lr,0,Math.PI*2);ctx.fillStyle=lc;ctx.fill();});
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2);
+      ctx.fillStyle="rgba(180,230,255,0.08)"; ctx.fill();
+    }
+  },
+  {
+    name: "Mars", color: "#c1440e", glow: "#e05820",
+    dist: "1.52 AU", day: "24.6 h", moons: "2", temp: "-65°C", type: "Terrestrial",
+    tag: "The red planet — humanity's most likely next home beyond Earth.",
+    draw(ctx, cx, cy, r) {
+      const g = ctx.createRadialGradient(cx-r*0.3,cy-r*0.3,r*0.05,cx,cy,r);
+      g.addColorStop(0,"#e06030"); g.addColorStop(0.5,"#c1440e"); g.addColorStop(1,"#6e2008");
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      ctx.beginPath(); ctx.arc(cx+r*0.1,cy-r*0.35,r*0.2,0,Math.PI*2); ctx.fillStyle="rgba(220,220,240,0.3)"; ctx.fill();
+      ctx.beginPath(); ctx.arc(cx,cy-r*0.05,r*0.18,0,Math.PI); ctx.fillStyle="rgba(100,30,10,0.3)"; ctx.fill();
+    }
+  },
+  {
+    name: "Jupiter", color: "#c8a878", glow: "#e8c898",
+    dist: "5.20 AU", day: "9.9 h", moons: "95", temp: "-110°C", type: "Gas Giant",
+    tag: "King of planets — its Great Red Spot storm has raged for centuries.",
+    draw(ctx, cx, cy, r) {
+      const g = ctx.createRadialGradient(cx-r*0.3,cy-r*0.2,r*0.1,cx,cy,r);
+      g.addColorStop(0,"#e8d0a8"); g.addColorStop(0.5,"#c8a878"); g.addColorStop(1,"#785830");
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      const bands=[[-0.5,"rgba(160,100,60,0.4)"],[-0.2,"rgba(200,170,120,0.3)"],[0.1,"rgba(140,90,50,0.35)"],[0.35,"rgba(180,140,90,0.25)"]];
+      ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.clip();
+      bands.forEach(([yoff,bc])=>{ctx.beginPath();ctx.ellipse(cx,cy+yoff*r,r,r*0.1,0,0,Math.PI*2);ctx.fillStyle=bc;ctx.fill();});
+      ctx.beginPath(); ctx.ellipse(cx+r*0.3,cy+r*0.1,r*0.14,r*0.09,0,0,Math.PI*2); ctx.fillStyle="rgba(180,80,60,0.6)"; ctx.fill();
+      ctx.restore();
+    }
+  },
+  {
+    name: "Saturn", color: "#e8d090", glow: "#f0e0a8",
+    dist: "9.58 AU", day: "10.7 h", moons: "146", temp: "-140°C", type: "Gas Giant",
+    tag: "The jewel of the solar system — its rings are made of ice and rock.",
+    draw(ctx, cx, cy, r) {
+      ctx.save();
+      ctx.beginPath(); ctx.ellipse(cx,cy+r*0.05,r*1.55,r*0.3,0,0,Math.PI*2);
+      const rg=ctx.createRadialGradient(cx,cy,r*0.7,cx,cy,r*1.55);
+      rg.addColorStop(0,"rgba(200,180,130,0.0)"); rg.addColorStop(0.3,"rgba(200,180,130,0.6)"); rg.addColorStop(0.7,"rgba(180,160,110,0.4)"); rg.addColorStop(1,"rgba(200,180,130,0.0)");
+      ctx.fillStyle=rg; ctx.fill();
+      const g=ctx.createRadialGradient(cx-r*0.3,cy-r*0.2,r*0.05,cx,cy,r);
+      g.addColorStop(0,"#f5e8b8"); g.addColorStop(0.5,"#e8d090"); g.addColorStop(1,"#987840");
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      ctx.restore();
+    }
+  },
+  {
+    name: "Uranus", color: "#80d4e8", glow: "#a0e8f8",
+    dist: "19.2 AU", day: "17.2 h", moons: "27", temp: "-195°C", type: "Ice Giant",
+    tag: "The tilted giant — rotates on its side with its poles facing the Sun.",
+    draw(ctx, cx, cy, r) {
+      const g = ctx.createRadialGradient(cx-r*0.3,cy-r*0.2,r*0.05,cx,cy,r);
+      g.addColorStop(0,"#b8f0ff"); g.addColorStop(0.5,"#80d4e8"); g.addColorStop(1,"#308898");
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.clip();
+      ctx.beginPath(); ctx.ellipse(cx,cy,r*0.6,r*0.08,0.4,0,Math.PI*2); ctx.fillStyle="rgba(100,200,220,0.2)"; ctx.fill();
+      ctx.restore();
+      ctx.save(); ctx.translate(cx,cy); ctx.rotate(0.4);
+      ctx.beginPath(); ctx.ellipse(0,0,r*1.4,r*0.2,0,0,Math.PI*2); ctx.strokeStyle="rgba(150,220,240,0.35)"; ctx.lineWidth=2; ctx.stroke();
+      ctx.restore();
+    }
+  },
+  {
+    name: "Neptune", color: "#3060c8", glow: "#5080e8",
+    dist: "30.1 AU", day: "16.1 h", moons: "16", temp: "-200°C", type: "Ice Giant",
+    tag: "The windiest world — storms rage at over 2,000 km/h in its atmosphere.",
+    draw(ctx, cx, cy, r) {
+      const g = ctx.createRadialGradient(cx-r*0.3,cy-r*0.2,r*0.05,cx,cy,r);
+      g.addColorStop(0,"#6090f0"); g.addColorStop(0.5,"#3060c8"); g.addColorStop(1,"#102060");
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fillStyle=g; ctx.fill();
+      ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.clip();
+      ctx.beginPath(); ctx.arc(cx-r*0.2,cy-r*0.1,r*0.25,0,Math.PI*2); ctx.fillStyle="rgba(40,80,200,0.45)"; ctx.fill();
+      ctx.beginPath(); ctx.ellipse(cx+r*0.1,cy+r*0.2,r*0.35,r*0.08,0.5,0,Math.PI*2); ctx.fillStyle="rgba(80,120,240,0.25)"; ctx.fill();
+      ctx.restore();
+    }
+  }
+];
+
+// Starfield
+const canvas = document.getElementById('starfield');
+const ctx2 = canvas.getContext('2d');
+let stars = [];
+function initStars() {
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  stars = Array.from({length:180},()=>({
+    x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+    r: Math.random()*1.2+0.2, o: Math.random()*0.7+0.2,
+    speed: Math.random()*0.003+0.001
+  }));
+}
+function drawStars(t) {
+  ctx2.clearRect(0,0,canvas.width,canvas.height);
+  stars.forEach(s=>{
+    const o = s.o*(0.7+0.3*Math.sin(t*s.speed*100));
+    ctx2.beginPath(); ctx2.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx2.fillStyle=`rgba(200,220,255,${o})`; ctx2.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+initStars(); requestAnimationFrame(drawStars);
+window.addEventListener('resize', initStars);
+
+// Build planets
+const row = document.getElementById('planets-row');
+planets.forEach((p, i) => {
+  const item = document.createElement('div');
+  item.className = 'planet-item';
+  item.style.animationDelay = `${i*0.07}s`;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'planet-wrap';
+
+  const pc = document.createElement('canvas');
+  pc.width = 72; pc.height = 72;
+  pc.className = 'planet-svg';
+  const pctx = pc.getContext('2d');
+  const r = i === 5 ? 22 : (i === 4 ? 26 : 20 + i*0.5);
+  p.draw(pctx, 36, 36, r);
+
+  const glow = document.createElement('div');
+  glow.className = 'glow-ring';
+  glow.style.boxShadow = `0 0 18px 4px ${p.glow}55, 0 0 40px 8px ${p.glow}22`;
+
+  const dot = document.createElement('div');
+  dot.className = 'orbit-dot';
+  dot.style.background = p.glow;
+
+  wrap.append(pc, glow, dot);
+
+  const name = document.createElement('div');
+  name.className = 'planet-name';
+  name.textContent = p.name;
+
+  item.append(wrap, name);
+  item.addEventListener('click', () => selectPlanet(i));
+  row.appendChild(item);
+  p._el = item;
+});
+
+let current = null;
+function selectPlanet(i) {
+  if (current !== null) planets[current]._el.classList.remove('active');
+  current = i;
+  const p = planets[i];
+  p._el.classList.add('active');
+  document.getElementById('s-name').textContent = p.name;
+  document.getElementById('s-dist').textContent = p.dist;
+  document.getElementById('s-day').textContent = p.day;
+  document.getElementById('s-moons').textContent = p.moons;
+  document.getElementById('s-temp').textContent = p.temp;
+  document.getElementById('s-type').textContent = p.type;
+  document.getElementById('s-tag').textContent = p.tag;
+  const panel = document.getElementById('info-panel');
+  panel.style.borderColor = `${p.glow}40`;
+  document.querySelectorAll('.stat-value').forEach(el => el.style.color = p.glow);
+}
+
+selectPlanet(2);
+ // Navbar Animation
+      var typed2 = new Typed("#my", {
+        strings: ["AARC Academy", "Learn Programming", "Learn Web Development"],
+
+        typeSpeed: 80,
+        backSpeed: 40,
+        backDelay: 1200,
+        loop: true,
+      });
+</script>
+</body>
+</html>
