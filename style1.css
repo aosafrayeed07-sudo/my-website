@@ -55,9 +55,7 @@ h2{
 .li{
     color: bisque;
 }
-td,th{
-    color:aliceblue
-}
+
 ul,ol,li{
     color:aliceblue
 }
@@ -144,4 +142,7 @@ fieldset legend {
 fieldset label {
     color: saddlebrown;        /* same as Name:* and Address:* */
     font-family: 'Pacifico', cursive;
+}
+table,tr,th,td{
+    border-collapse: collapse;
 }
