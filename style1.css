@@ -1,148 +1,229 @@
-a[ href="https://www.instagram.com/aosaf_rayeed777?igsh=ZngwMWRsYWR3amVq"]{
-    color:rgb(131, 57, 206);
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-a[href="https://crush-whisper-vault.base44.app/"]{
-     color:rgb(131, 57, 206); }
+
+body{
+    background-color:rgb(5,5,40);
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+/* LINKS */
+a{
+    text-decoration:none;
+}
+
+a[href*="instagram"]{
+    color:rgb(131,57,206);
+}
+
+a[href*="instagram"]:hover{
+    color:violet;
+}
+
+a[href*="crush-whisper-vault"]{
+    color:rgb(131,57,206);
+}
+
+a[href*="crush-whisper-vault"]:hover{
+    color:saddlebrown;
+}
+
+/* HEADINGS */
+h1{
+    color:rgb(110,239,239);
+}
+
+h2{
+    color:aliceblue;
+}
+
 p{
-    color: greenyellow;
+    color:greenyellow;
+    font-family:'Pacifico',cursive;
 }
-tablefooter{
-    color: blanchedalmond;
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 25px;
+    flex-wrap:wrap;
 }
-li{
-    list-style-type: none;
+
+.left{
+    color:aqua;
+    font-size:1.7rem;
 }
+
+nav ul{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+nav li{
+    list-style:none;
+}
+
+nav a{
+    color:white;
+}
+
+nav a:hover{
+    color:rgb(153,153,226);
+}
+
+/* SECTION */
+section{
+    padding:30px;
+}
+
+/* MEDIA */
+img,
+video,
+iframe{
+    max-width:100%;
+    height:auto;
+
+    display:block;
+    margin:auto;
+
+    border-radius:10px;
+}
+
+/* LISTS */
+ul,
+ol{
+    color:aliceblue;
+}
+
 .special,
 .special span,
-#friends {
-    color: greenyellow;
-    font-weight: bold;
-}
-
-
-a[href="https://crush-whisper-vault.base44.app/"]:hover{
-    color: saddlebrown;
-    text-decoration: none;
-}
-h1{
-    color:rgb(110, 239, 239)
-}
-.foot{
-    color: beige;
-}
-a[ href="https://www.instagram.com/aosaf_rayeed777?igsh=ZngwMWRsYWR3amVq"]:hover{
- color: wn;
-    text-decoration: none;}
-
-#header{
-    color: greenyellow;
-    background-color: aliceblue;
-}
-*{
-    list-style-type: none;
-}
-table,th,td{
-    border-color: aquamarine;
-     color:green ;
-}
-*{
-       background-color: rgb(5, 5, 40); 
-
-}
-h2{
-    color: aliceblue;
-}
-.li{
-    color: bisque;
-}
-
-ul,ol,li{
-    color:aliceblue
-}
-#acheivements,
-#hobbies,
 #friends{
-    color: aliceblue;
-}
-input[type="submit"]{
-    background-color: black;
-    color: antiquewhite;
-    
-}
-input[type="reset"]{
-    background-color: black;
-    color: antiquewhite;
-    
-}
- .left {
-        font-size: 1.5rem;
-        font-weight: 700;
-      }
-
-      nav ul {
-        display: flex;
-        gap: 30px;
-        list-style: none;
-      }
-
-      nav ul li a {
-        text-decoration: none;
-        color: aliceblue;
-        transition: 0.3s;
-      }
-
-      nav ul li a:hover {
-        color: rgb(153, 153, 226);
-      }
-      .navbar {
-    display: flex;
-    gap: 20px; /* space between links */
+    color:greenyellow;
 }
 
-.navbar a {
-    color: lightblue;
-    text-decoration: none;
-    font-size: 24px;
+/* TABLE */
+table{
+    width:100%;
+    overflow-x:auto;
+
+    display:block;
+
+    border-collapse:collapse;
 }
-.navbar {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+
+th,
+td{
+    padding:10px;
+
+    border:1px solid aquamarine;
+
+    color:greenyellow;
+
+    min-width:120px;
 }
-.left{
-    color: aqua;
-   
+
+.foot{
+    color:beige;
 }
-.rule{
-    color: rgb(107, 181, 132);
+
+/* FORM */
+form{
+    width:100%;
 }
-p{
-    font-family: 'Pacifico';
-}
-/* Input text color white when typing */
+
 form input,
 form textarea,
-form select {
-    color: white;
-    caret-color: white;
+form select{
+
+    width:100%;
+
+    max-width:600px;
+
+    padding:12px;
+
+    color:white;
+
+    background:#222;
+
+    border:1px solid gray;
+
+    margin:10px 0;
 }
 
-/* Fieldset and legend same color as Name/Address labels */
-fieldset {
-    border-color: aliceblue;
+fieldset{
+    border-color:aliceblue;
+
+    padding:15px;
 }
 
-fieldset legend {
-    font-family: 'Pacifico', cursive;
-    color: saddlebrown;        /* same as Name:* and Address:* */
-    font-size: 1rem;
+fieldset legend,
+fieldset label{
+
+    color:saddlebrown;
+
+    font-family:'Pacifico';
 }
 
-/* Male / Female label text */
-fieldset label {
-    color: saddlebrown;        /* same as Name:* and Address:* */
-    font-family: 'Pacifico', cursive;
+input[type="submit"],
+input[type="reset"]{
+
+    width:auto;
+
+    padding:10px 20px;
+
+    background:black;
+
+    color:white;
+
+    cursor:pointer;
 }
-table,tr,th,td{
-    border-collapse: collapse;
+
+/* MOBILE */
+@media (max-width:768px){
+
+nav{
+    flex-direction:column;
+}
+
+nav ul{
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.left{
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:1.7rem;
+}
+
+h2{
+    font-size:1.3rem;
+}
+
+p{
+    font-size:0.95rem;
+}
+
+section{
+    padding:15px;
+}
+
+table{
+    font-size:13px;
+}
+
 }
