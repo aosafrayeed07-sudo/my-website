@@ -112,3 +112,10 @@ body::before{
 ol li {
   margin-bottom: 0.5rem;
 }
+ol li a {
+  color: white;
+}
+
+ol li a:hover {
+  color: tomato;
+}
